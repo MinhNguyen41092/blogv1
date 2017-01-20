@@ -1,0 +1,37 @@
+<header class="navbar navbar-fixed-top navbar-default">
+  <div class="container">
+    <%= link_to "MINH NGUYEN", ' ', id: "logo" %>
+    
+    <% if logged_in? %>
+      <ul class="nav_item">
+        <li class="dropdown">
+          <%= link_to '#', class: "btn btn-default btn-danger dropdown-toggle", "data-toggle" => "dropdown" do %>
+            <%= current_user.username %> <b class="caret"></b>
+          <% end %>
+          <ul class='dropdown-menu'>
+            <li><%= link_to "View Profile", user_path(current_user) %></li>
+            <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Logout", logout_path %></li>
+          </ul>
+        </li>
+      </ul>
+    <% else %>
+      <div class="nav_item">
+        <%= link_to "Log in", login_path, class: "btn btn-default btn-success" %>
+      </div>
+    <% end %>
+      
+    <div class="nav_item">
+      <%= link_to "projects", "", class: "btn btn-default btn-success"  %>
+    </div>
+      
+    <div class="nav_item">
+      <%= link_to "articles", "", class: "btn btn-default btn-success"  %>
+    </div>
+    
+    <div class="nav_item">
+      <%= link_to "about", "", class: "btn btn-default btn-success"  %>
+    </div>
+  </div>
+</header>
