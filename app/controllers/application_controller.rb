@@ -12,4 +12,15 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
   
+  def require_user
+    if !logged_in?
+      flash[:danger] = "You must be logged in to perform that action"
+      redirect_to articles_path
+    end
+  end
+    
+  def admin_user
+    redirect_to recipes_path unless current_user.admin
+  end
+  
 end
