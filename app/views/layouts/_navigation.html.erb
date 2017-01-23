@@ -3,8 +3,25 @@
     <!-- Brand and toggle get grouped for better mobile display -->
         
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li>
+        <%= link_to register_path , method: :get do %>
+          <span class="glyphicon glyphicon-user"></span> Sign Up
+        <% end %>
+      </li>
+      
+      <% if !logged_in? %>
+        <li>
+          <%= link_to login_path , method: :get do %>
+            <span class="glyphicon glyphicon-log-in"></span> Login
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to logout_path , method: :get do %>
+            <span class="glyphicon glyphicon-log-out"></span> Logout
+          <% end %>
+        </li>
+      <% end %>
     </ul>
     
     <div class="nav navbar-nav navbar-right">
@@ -33,7 +50,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav ">
         <li class="active"><%= link_to "About", "" %> <span class="sr-only">(current)</span></li>
-        <li class="active"><%= link_to "Articles", "" %> <span class="sr-only">(current)</span></li>
+        <li class="active"><%= link_to "Articles", articles_path %> <span class="sr-only">(current)</span></li>
         <li class="active"><%= link_to "Projects", "" %> <span class="sr-only">(current)</span></li>
         
         <% if logged_in? %>
@@ -41,11 +58,12 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "View Profile", user_path(current_user) %></li>
-              <li><li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+              <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Logout", logout_path %></li>
             </ul>
           </li>
+          <li class="active"><%= link_to "Write Your Article", new_article_path %> <span class="sr-only">(current)</span></li>
         <% else %>
         
           <li class="active"><%= link_to "Log in", login_path %> <span class="sr-only">(current)</span></li>
