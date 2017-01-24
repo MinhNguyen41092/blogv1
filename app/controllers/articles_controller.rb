@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :like]
   before_action :require_user, except: [:show, :index, :like]
   before_action :require_user_like, only: [:like]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :require_admin, only: [:edit, :update]
   before_action :admin_user, only: :destroy
   
   def index
@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
       flash[:success] = "Your article has been updated successfully"
       redirect_to article_path(@article)
     else
-      render 'edit'
+      render :edit
     end
   end
   
@@ -50,6 +50,13 @@ class ArticlesController < ApplicationController
     
     def set_article
       @article = Article.find(params[:id])
+    end
+    
+    def require_admin
+      if !current_user.admin
+        flash[:warning] = "Only admin can edit articles"
+        redirect_to article_path(@article)
+      end
     end
     
     def require_user_like
