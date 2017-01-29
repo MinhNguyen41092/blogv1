@@ -1,2 +1,9 @@
 <%= render 'shared/page_title', title: "The Archive" %>
 
+<% @articles.each do |article| %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2", id="article-name">
+      <%= link_to article.name, article_path(article) %>
+    </div>
+  </div>
+<% end %>

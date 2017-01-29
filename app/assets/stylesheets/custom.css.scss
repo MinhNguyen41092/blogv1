@@ -2,8 +2,26 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+  .jumbotron {
+    background-color: red;
+    margin-bottom: 0px;
+  }
+  
+  #header {
+    color: white;
+  }
+  
+  .navbar {
+    border-radius: 0px !important;
+  }
+
   #search {
     
+  }
+  
+  #article-name {
+    font-size: 1.5em;
+    text-decoration: none; 
   }
 
   #bs-example-navbar-collapse-1 {
@@ -11,11 +29,15 @@
     font-size: 1.2em;
     font-family: Serif;
     margin-right: 30px;
-    
   }
   
-  .navbar-form {
-    display: inline-block;
+  #subscription {
+    font-size: 1.2em;
+    font-family: Serif;
+  }
+  
+  button {
+    border-radius: 0px !important;
   }
   
   .navbar-brand {
@@ -25,10 +47,9 @@
     
   }
   
-  .button {
+  #button-home {
     text-transform: uppercase;
     font-size: 3em;
-    text-align: center;
     margin-top: 30px;
   }
   
@@ -42,6 +63,16 @@
   
   h2 {
     text-align: center;
+  }
+  
+  h4 {
+    text-align: center;
+    margin-top: 5px;
+    text-transform: uppercase;
+  }
+  
+  h5 {
+    line-height: 1.5;
   }
   
   .footer {

@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  
+  controller :pages do
+    get :home
+    get :about
+    get :projects
+  end
+  
   root 'pages#home'
+  
   get '/home', to: 'pages#home'
   
   resources :users, except: [:new, :destroy]

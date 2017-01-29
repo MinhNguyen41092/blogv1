@@ -6,7 +6,12 @@ class ArticlesController < ApplicationController
   before_action :admin_user, only: :destroy
   
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 10)
+    @articles = Article.all
+    if params[:search]
+      @articles = Article.search(params[:search]).order("created_at DESC")
+    else
+      @articles = Article.all.order('created_at DESC')
+    end
   end
   
   def show
@@ -40,6 +45,12 @@ class ArticlesController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def destroy
+    Article.find(params[:id]).destroy
+    flash[:success] = "Article has been deleted"
+    redirect_to articles_path
   end
   
   private
