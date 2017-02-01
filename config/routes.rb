@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post '/login', to: "logins#create"
   get '/logout', to: "logins#destroy"
   
-  resources :articles
-  
-  resources :comments
+  resources :articles do
+    resources :comments, except: [:index, :show]
+  end
 end

@@ -5,7 +5,29 @@
       <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-default pull-right" %>
       <%= link_to "Delete this article", @article, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-left" %>
     <% end %>
-  <div class="col-md-8 col-md-offset-4">
+  <div class="col-md-8 col-md-offset-2">
     <h5><%= @article.body %></h5>
+  </div>
+</div>
+
+<hr/>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_for([@article, @article.comments.build]) do |f| %>
+      <%= f.label "Write a comment" %>
+      <%= f.text_area :comment, rows: 5 %>
+      <%= f.submit("Comment", class: "btn btn-success") %>
+    <% end %>
+    
+    <% @article.comments.each do |comment| %>
+      <div class="well">
+        <% if comment.created_at %>
+          <strong><%= your_username %></strong> (<small><%= time_ago_in_words(comment.created_at) %></small> ago): <br /> <%= comment.comment %>
+          
+        <% end %>
+      </div>
+    <% end %>
+    
   </div>
 </div>
