@@ -2,6 +2,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+  a:-webkit-any-link {
+    text-decoration: none ;
+  }
+
   .jumbotron {
     background-color: red;
     margin-bottom: 0px;
@@ -9,6 +13,7 @@
   
   #header {
     color: white;
+    text-decoration: none !important ;
   }
   
   .navbar {
@@ -59,22 +64,34 @@
     letter-spacing: 4px;
     font-weight: bold;
     font-size: 5em;
+    text-decoration: none !important ;
   }
   
   h2 {
     text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  h3 {
+    text-align: center;
+    font-weight: bold;
   }
   
   h4 {
     text-align: center;
     margin-top: 5px;
-    text-transform: uppercase;
+    font-weight: bold;
   }
   
   h5 {
     line-height: 1.5;
   }
   
+  .btn-success {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
   .footer {
     margin-top: 25px;
     border-top: 1px solid #eaeaea;
@@ -89,10 +106,30 @@
   input, textarea, select, .uneditable-input {
     border: 1px solid #d2d2d2;
     border-radius: 2px;
-    width: 100%;
-    
   }
   
   .body {
     margin-top: 30px;
   }
+
+  p {
+    margin-top: 30px;
+  }
+  
+  ol li {
+    list-style-type: none;
+    margin-top: 10px;
+  }
+  
+  #comments-section {
+    
+  }
+  
+  #article-title {
+    padding-left: 40px;
+  }
+  
+  #comments  {
+    padding-left: 0px;
+  }
+  

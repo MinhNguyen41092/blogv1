@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Your comment has been added"
       redirect_to article_path(@article)
     else
+      flash[:danger] = "Comment could not be saved"
       redirect_to :back
     end
   end

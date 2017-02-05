@@ -3,7 +3,8 @@
 <% @articles.each do |article| %>
   <div class="row">
     <div class="col-md-8 col-md-offset-2", id="article-name">
-      <%= link_to article.name, article_path(article) %>
+      <%= article.created_at.strftime("%B %d") %> <%= link_to article.name, article_path(article), id: "article-title" %>
     </div>
   </div>
 <% end %>
+   

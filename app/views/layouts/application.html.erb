@@ -8,10 +8,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="jumbotron text-center", id="header">
-    <h1>minh nguyen</h1>
-    <h4>discipline is freedom . self-control is bliss</h4>
-  </div>
+  <%= link_to root_path do %>
+    <div class="jumbotron text-center", id="header">
+      <h1>minh nguyen</h1>
+      <h4>EMBRACE FAILURE</h4>
+    </div>
+  <% end %>
   <%= render 'layouts/navigation' %>
   
   <div class="container">
