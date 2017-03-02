@@ -8,3 +8,4 @@ alternate:
   toolbar: styleselect | bold italic | undo redo | table
   plugins:
     - table
+    

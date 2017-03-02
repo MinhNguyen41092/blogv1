@@ -6,13 +6,13 @@
       <%= link_to "Delete this article", @article, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-left" %>
     <% end %>
   <div class="col-md-8 col-md-offset-2">
-    <h5><%= @article.body %></h5>
+    <h5><%= raw @article.body %></h5>
   </div>
 </div>
 
 <hr/>
 <p>
-  <%= link_to "Comments", "#", id: "comments-link" %>
+  <%= link_to "Comments", "#", id: "comments-link", remote: true %>
 </p>
 
 <section id="comments-section">
@@ -21,7 +21,7 @@
     <%= render 'comments/comment' %>
   </ol>
   
-  <%= form_for([@article, @article.comments.build]) do |f| %>
+  <%= form_for([@article, @article.comments.build], remote: true) do |f| %>
     <fieldset>
       <ol>
         <li>

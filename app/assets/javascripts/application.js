@@ -12,7 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
+//= require bootstrap.min  
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
 //= require tinymce
+//= require tinymce-jquery
+

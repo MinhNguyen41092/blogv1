@@ -8,10 +8,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
-  def your_username
-    current_user.username
-  end
-  
   def logged_in?
     !!current_user
   end
