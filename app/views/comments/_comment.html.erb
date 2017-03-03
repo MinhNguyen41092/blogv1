@@ -1,4 +1,5 @@
-<% @article.comments.each do |comment| %>
+
+<% @article.comments.order('created_at DESC').each do |comment| %>
     <% if comment.created_at %>
       <ol>
         <li>

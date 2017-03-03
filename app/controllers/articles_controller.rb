@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   before_action :require_user_like, only: [:like]
   before_action :require_admin, only: [:edit, :update]
   before_action :admin_user, only: :destroy
+  respond_to :html, :js
   
   def index
     @articles = Article.all

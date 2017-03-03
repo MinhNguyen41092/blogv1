@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to article_path(@article) }
         format.js # render comments/create.js.erb
       end
+      
     else
       flash[:danger] = "Comment could not be saved"
       redirect_to :back
