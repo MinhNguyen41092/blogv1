@@ -6,7 +6,7 @@
       <%= link_to "Delete this article", @article, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-left" %>
     <% end %>
   <div class="col-md-8 col-md-offset-2">
-    <h5><%= raw @article.body %></h5>
+    <%= raw @article.body %>
   </div>
 </div>
 

@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :require_user
+  before_action :admin_user, only: [:destroy]
   
   def create
     @article = Article.find(params[:article_id])
@@ -16,6 +17,12 @@ class CommentsController < ApplicationController
       flash[:danger] = "Comment could not be saved"
       redirect_to :back
     end
+  end
+  
+  def destroy
+    Comment.find(params[:id]).destroy
+    flash[:success] = "Comment has been deleted"
+    redirect_to :back
   end
  
   private

@@ -85,8 +85,7 @@ h4 {
   
 h5 {
   line-height: 1.5;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  display: inline-block;
 }
   
 .btn-success {
@@ -146,3 +145,9 @@ ol li {
 #social #container {
   text-align: center;
 }
+
+.close {
+  float: right;
+  display: inline-block;
+}
+
