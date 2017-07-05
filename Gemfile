@@ -1,39 +1,38 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-ruby '2.3.0'
-gem 'tinymce-rails'
-gem 'rails', '4.2.5'
-gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass', '~> 3.3.1'
-gem 'bootstrap-social-rails'
-gem 'font-awesome-rails'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'carrierwave', '0.10.0'
-gem 'mini_magick', '3.8.0'
-gem 'will_paginate', '3.0.7'
-gem 'bootstrap-will_paginate', '0.0.10'
-gem 'bcrypt', '3.1.7'
-gem 'responders', '~> 2.0'
-gem 'puma'
+ruby "2.4.0"
+gem "tinymce-rails"
+gem "rails", "~> 5.0.4"
+gem "sass-rails"
+gem "bootstrap-sass"
+gem "bootstrap-social-rails"
+gem "font-awesome-rails"
+gem "uglifier"
+gem "coffee-rails"
+gem "jquery-rails"
+gem "turbolinks"
+gem "jbuilder"
+gem "sdoc", "~> 0.4.0", group: :doc
+gem "carrierwave"
+gem "mini_magick"
+gem "will_paginate", "3.1.5"
+gem "bootstrap-will_paginate"
+gem "bcrypt"
+gem "responders"
+gem "puma"
 
 group :development, :test do
-  gem 'byebug'
-  gem 'sqlite3'
-  gem 'pry'
+  gem "byebug"
+  gem "sqlite3"
+  gem "pry"
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
-
-  gem 'spring'
+  gem "web-console"
+  gem "spring"
 end
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+  gem "pg"
+  gem "rails_12factor"
 end

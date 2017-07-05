@@ -1,4 +1,4 @@
-<%= render 'shared/page_title', title: "profile" %>
+<%= render "shared/page_title", title: "profile" %>
 
 <h4>Welcome <%= current_user.username %>, you are currently logged in.</h4>
 
@@ -6,17 +6,17 @@
   <div class="well col-md-8 col-md-offset-2">
     <%= form_for(@user, html: { multipart: true }) do |f| %>
       <h4>YOUR PROFILE</h4>
-      <%= f.label :username %> 
+      <%= f.label :username %>
       <%= f.text_field :username, :value => current_user.username %>
-      
+
       <%= f.label :email %>
       <%= f.email_field :email, :value => current_user.email %>
-      <%= f.submit 'Edit Profile Information', class: "btn btn-success" %>
-      
+      <%= f.submit "Edit Profile Information", class: "btn btn-success" %>
+
       <h4>UPDATE PASSWORD</h4>
       <%= f.label :password %>
       <%= f.password_field :password %>
-      <%= f.submit 'Update Password', class: "btn btn-success" %>
-    <% end %>  
+      <%= f.submit "Update Password", class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>
