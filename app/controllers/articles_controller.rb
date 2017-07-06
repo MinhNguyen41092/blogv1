@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
   before_action :require_user_like, only: [:like]
   before_action :require_admin, only: [:edit, :update]
   before_action :admin_user, only: :destroy
-  respond_to :html, :js
 
   def index
     @articles = Article.all
@@ -17,6 +16,10 @@ class ArticlesController < ApplicationController
 
   def show
     session[:current_article_id] = @article.id
+    respond_to do |format|
+      format.html
+      format.json { render json: {type: "articles", attributes: @article} }
+    end
   end
 
   def new

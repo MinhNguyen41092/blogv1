@@ -20,11 +20,19 @@ gem "bootstrap-will_paginate"
 gem "bcrypt"
 gem "responders"
 gem "puma"
+gem "active_model_serializers"
 
 group :development, :test do
   gem "byebug"
   gem "sqlite3"
   gem "pry"
+  gem "factory_girl_rails"
+  gem "ffaker"
+end
+
+group :test do
+  gem "rspec-rails"
+  gem "shoulda-matchers"
 end
 
 group :development do
