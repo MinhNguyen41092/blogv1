@@ -1,11 +1,11 @@
 module Api
   module V1
     class ArticlesController < ApplicationController
-      before_action :set_article, only: [:edit, :update, :show, :like]
-      before_action :require_user, except: [:show, :index, :like]
-      before_action :require_user_like, only: [:like]
-      before_action :require_admin, only: [:edit, :update]
-      before_action :admin_user, only: :destroy
+      before_action :set_article, only: [:update, :show, :destroy]
+      #before_action :require_user, except: [:show, :index, :like]
+      #before_action :require_user_like, only: [:like]
+      #before_action :require_admin, only: [:edit, :update]
+      #before_action :admin_user, only: :destroy
       respond_to :json
 
       def index
@@ -13,27 +13,24 @@ module Api
       end
 
       def show
-        render json: {type: "articles", attributes:@article}
+        render json: {type: "articles", attributes: @article}
       end
 
       def create
-        @article = Article.new(article_params)
-        @article.user = current_user
+        @article = Article.new article_params
 
         if @article.save
-          flash[:success] = "Your article has been saved"
-          redirect_to root_path
+          render json: {status: 201, type: "articles", attributes: @article}, status: 201
         else
-          render :new
+          render json: {status: 422, type: "articles", errors: @article.errors}, status: 422
         end
       end
 
       def update
-        if @article.update(article_params)
-          flash[:success] = "Your article has been updated successfully"
-          redirect_to article_path(@article)
+        if @article.update article_params
+          render json: {status: 200, type: "articles", attributes: @article}, status: 200
         else
-          render :edit
+          render json: {status: 422, type: "articles", errors: @article.errors}, status: 422
         end
       end
 
@@ -47,11 +44,11 @@ module Api
       private
 
       def article_params
-        params.require(:article).permit(:name, :body)
+        params.require(:article).permit :name, :body, :user_id
       end
 
       def set_article
-        @article = Article.find(params[:id])
+        @article = Article.find params[:id]
       end
 
       def require_admin
@@ -70,4 +67,3 @@ module Api
     end
   end
 end
-

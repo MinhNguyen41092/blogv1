@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     constraints: { subdomain: "api" }, path: "/" do
 
     namespace :v1, constraints: ApiConstraints.new(version: 1, default: true) do
-      resources :articles, only: [:show, :index]
+      resources :articles, only: [:show, :index, :create, :update]
     end
   end
 end
