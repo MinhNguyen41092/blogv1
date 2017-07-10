@@ -21,6 +21,7 @@ gem "bcrypt"
 gem "responders"
 gem "puma"
 gem "active_model_serializers"
+gem "jwt"
 
 group :development, :test do
   gem "byebug"
