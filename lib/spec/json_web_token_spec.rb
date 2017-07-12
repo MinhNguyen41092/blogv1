@@ -1,6 +1,5 @@
 require 'rails_helper'
 require 'jwt'
-require 'json_web_token'
 
 describe JsonWebToken do
   before :each do

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
     namespace :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :articles, only: [:show, :index, :create, :update]
+      resources :authentication, only: [:create, :destroy]
     end
   end
 end

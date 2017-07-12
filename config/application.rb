@@ -33,6 +33,6 @@ module Workspace
         g.helper = false
       end
 
-    config.autoload_paths += %W(\#{config.root}/lib)
+    config.eager_load_paths << Rails.root.join("lib")
   end
 end
